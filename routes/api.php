@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
+use Illuminate\Database\Eloquent\Casts\Json;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +21,12 @@ use App\Http\Controllers\OrderController;
 //     return $request->user();
 // });
 
+Route::get('/', function() {
+    return response()->json(["message" => "Server is live"]);
+});
 
 Route::post('/sync_woocommerce', [ProductController::class, "productSyncWoocommerce"]);
+
+Route::any('{any}', function() {
+    return redirect('/');
+})->where('any', '.*');
