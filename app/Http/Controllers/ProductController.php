@@ -19,9 +19,9 @@ class ProductController extends Controller
 
     public function productSyncWoocommerce(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-        ]);
+        // $request->validate([
+        //     'name' => 'required|string|max:255',
+        // ]);
         $productData = [
             'name' => $request->input('name'),
             'sku' => $request->input('sku'),
