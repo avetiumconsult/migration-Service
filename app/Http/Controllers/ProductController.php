@@ -23,17 +23,17 @@ class ProductController extends Controller
         //     'name' => 'required|string|max:255',
         // ]);
         $productData = [
-            'name' => $request->input('name'),
-            'sku' => $request->input('sku'),
-            'stock_quantity' => $request->input('stock_on_hand'),
-            'type' => $request->input('type', 'simple'),
-            'price' => $request->input('rate'), 
-            'regular_price' => $request->input('pricebook_rate'), 
-            'sale_price' => $request->input('rate'), 
-            'description' => $request->input('description'), 
-            'short_description' => $request->input('purchase_description'), 
-            'zoho_id' => $request->input("item_id"),
-            'images' => $request->input('image_name', [
+            'name' => $request('name'),
+            'sku' => $request('sku'),
+            'stock_quantity' => $request('stock_on_hand'),
+            'type' => $request('type', 'simple'),
+            'price' => $request('rate'), 
+            'regular_price' => $request('pricebook_rate'), 
+            'sale_price' => $request('rate'), 
+            'description' => $request('description'), 
+            'short_description' => $request('purchase_description'), 
+            'zoho_id' => $request("item_id"),
+            'images' => $request('image_name', [
                 [
                     'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_front.jpg'
                 ]
