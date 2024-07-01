@@ -20,7 +20,7 @@ class ProductController extends Controller
     public function productSyncWoocommerce(Request $request)
     {
         $request->validate([
-            $request->name => ['required'],
+            'name' => 'required|string|max:255',
         ]);
         $productData = [
             'name' => $request->input('name'),
@@ -35,8 +35,7 @@ class ProductController extends Controller
             'zoho_id' => $request->input("item_id"),
             'images' => $request->input('image_name', [
                 [
-                    'src' => ''
-                    // 'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_front.jpg'
+                    'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_front.jpg'
                 ]
             ]),
         ];
